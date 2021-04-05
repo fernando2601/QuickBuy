@@ -42,6 +42,9 @@ namespace QuickBuy.Repositorio.Config
 
             builder.HasOne(p => p.Usuario);
 
+            builder.HasMany(p => p.ItensPedido);
+
+
 
         }
     }

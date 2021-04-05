@@ -20,6 +20,8 @@ namespace QuickBuy.Repositorio.Config
                 .Property(i => i.Quantidade)
                 .IsRequired();
 
+            builder.HasMany(p => p.Pedidos);
+
         }
     }
 }
