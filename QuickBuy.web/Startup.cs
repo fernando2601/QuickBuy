@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Repositorio.Contexto;
 using QuickBuy.Repositorio.Repositorios;
@@ -29,6 +30,9 @@ namespace QuickBuy.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -36,6 +40,11 @@ namespace QuickBuy.Web
             services.AddDbContext <QuickBuyContexto> (option =>
                                                         option.UseLazyLoadingProxies()
                                                         .UseSqlServer(connectionString));
+
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "My API" });
+            });
 
 
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
@@ -75,21 +84,21 @@ namespace QuickBuy.Web
             //        name: "default",
             //        template: "{controller}/{action=Index}/{id?}");
             //});
-            app.UseEndpoints(endpoints => endpoints.MapControllers());
+            //app.UseEndpoints(endpoints => endpoints.MapControllers());
 
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
+            //app.UseSpa(spa =>
+            //{
+            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //    // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "ClientApp";
+            //    spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
-                {
-                    // spa.UseAngularCliServer(npmScript: "start");                    
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
-                }
-            });
+            //    if (env.IsDevelopment())
+            //    {
+            //        // spa.UseAngularCliServer(npmScript: "start");                    
+            //        spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+            //    }
+            //});
         }
     }
 }
