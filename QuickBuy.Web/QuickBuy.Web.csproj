@@ -21,6 +21,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.2.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,15 +37,56 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\UsuarioController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\DesignTimeDbContextFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.js.map" />
+    <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <None Remove="ClientApp\src\app\loja\carrinho-compras\loja.carrinho.compras.ts" />
+    <None Remove="ClientApp\src\app\loja\efetivar\loja.compra.realizada.component.html" />
+    <None Remove="ClientApp\src\app\loja\efetivar\loja.compra.realizada.component.ts" />
+    <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.css" />
+    <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
+    <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.css" />
+    <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
+    <None Remove="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
+    <None Remove="ClientApp\src\app\produto\produto.component.ts" />
+    <None Remove="ClientApp\src\app\servicos\pedido\pedido.servico.ts" />
+    <None Remove="ClientApp\src\app\servicos\produto\produto.servico.ts" />
+    <None Remove="ClientApp\src\app\servicos\usuario\usuario.servico.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\app.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\app.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\app.server.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\usuario\login\login.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\main.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\polyfills.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\tests.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\QuickBuy.Repositorio\QuickBuy.Repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\nav-menu\Produto\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\autorizacao\guarda.rotas.js.map" />
+    <TypeScriptCompile Include="ClientApp\src\app\loja\efetivar\loja.compra.realizada.component.html" />
+    <TypeScriptCompile Include="ClientApp\src\app\loja\efetivar\loja.efetivar.component.css" />
+    <TypeScriptCompile Include="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.css" />
+    <TypeScriptCompile Include="Controllers\UsuarioController.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
