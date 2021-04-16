@@ -55,6 +55,10 @@
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.css" />
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
     <None Remove="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
+    <None Remove="ClientApp\src\app\modelo\itemPedido.ts" />
+    <None Remove="ClientApp\src\app\modelo\pedido.ts" />
+    <None Remove="ClientApp\src\app\modelo\produto.ts" />
+    <None Remove="ClientApp\src\app\modelo\usuario.ts" />
     <None Remove="ClientApp\src\app\produto\produto.component.ts" />
     <None Remove="ClientApp\src\app\servicos\pedido\pedido.servico.ts" />
     <None Remove="ClientApp\src\app\servicos\produto\produto.servico.ts" />
